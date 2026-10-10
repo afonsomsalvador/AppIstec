@@ -4,7 +4,7 @@ type HeaderProps = {
   title: string;
   subtitle?: string;
 };
-const Header = ({ title, subtitle = "Bla bla bla" }: HeaderProps) => {
+const Header = ({ title, subtitle = "Lista de tarefas" }: HeaderProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -12,8 +12,6 @@ const Header = ({ title, subtitle = "Bla bla bla" }: HeaderProps) => {
     </View>
   );
 };
-
-//ficamos no touchable
 
 const styles = StyleSheet.create({
   container: {
