@@ -8,3 +8,5 @@ export type Tarefa = {
   title: string;
   concluida: boolean;
 };
+
+export type Filtro = "todas" | "concluidas" | "pendentes";
