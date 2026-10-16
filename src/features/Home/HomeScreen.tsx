@@ -4,9 +4,9 @@ import { NativeStackScreenProps } from "expo-router/build/react-navigation/nativ
 import { useState } from "react";
 import { Button, Image, ScrollView, Text, TextInput } from "react-native";
 
-type Props = NativeStackScreenProps<RootStackParamList, "HomeScreen">;
+type NavigationProps = NativeStackScreenProps<RootStackParamList, "HomeScreen">;
 
-const HomeScreen = ({ navigation }: Props) => {
+const HomeScreen = ({ navigation }: NavigationProps) => {
   const nome = "Afonso";
   const idade = 25;
   const [email, setEmail] = useState<string>("" as string); // 2 formas de tipificar

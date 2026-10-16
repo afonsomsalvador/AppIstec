@@ -1,16 +1,17 @@
 import AppButton from "@/components/AppButton";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 type CardProps = {
   title: string;
   concluida: boolean;
   onConcluir: () => void;
   onDelete: () => void;
+  onTap: () => void;
 };
 
-const Card = ({ title, concluida, onConcluir, onDelete }: CardProps) => {
+const Card = ({ title, concluida, onConcluir, onDelete, onTap }: CardProps) => {
   return (
-    <View
+    <TouchableOpacity
       style={{
         padding: 10,
         marginVertical: 5,
@@ -19,6 +20,7 @@ const Card = ({ title, concluida, onConcluir, onDelete }: CardProps) => {
         backgroundColor: "#79977e",
         borderRadius: 8,
       }}
+      onPress={onTap}
     >
       <Text
         style={[
@@ -38,7 +40,7 @@ const Card = ({ title, concluida, onConcluir, onDelete }: CardProps) => {
         />
         <AppButton onPress={onDelete} title="Eliminar" />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

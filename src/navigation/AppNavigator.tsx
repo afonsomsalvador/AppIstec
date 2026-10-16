@@ -1,3 +1,4 @@
+import DetalheScreen from "@/features/Detalhe";
 import HomeScreen from "@/features/Home/HomeScreen";
 import TarefasScreen from "@/features/ListaTarefas/TarefasScreen";
 import { createNativeStackNavigator } from "expo-router/build/react-navigation/native-stack";
@@ -10,8 +11,21 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function AppNavigator() {
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="Tarefas" component={TarefasScreen} />
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Tarefas"
+        component={TarefasScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Detalhe"
+        component={DetalheScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }

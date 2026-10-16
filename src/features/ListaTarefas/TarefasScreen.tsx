@@ -4,7 +4,14 @@ import Card from "@/components/Card";
 import { RootStackParamList } from "@/navigation/types";
 import { NativeStackScreenProps } from "expo-router/build/react-navigation/native-stack";
 import { useState } from "react";
-import { FlatList, TextInput, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const data = [
   {
@@ -24,9 +31,9 @@ const data = [
   },
 ] as Array<Tarefa>;
 
-type Props = NativeStackScreenProps<RootStackParamList, "Tarefas">;
+type NavigationProps = NativeStackScreenProps<RootStackParamList, "Tarefas">;
 
-const TarefasScreen = ({ navigation }: Props) => {
+const TarefasScreen = ({ navigation }: NavigationProps) => {
   const [contador, setContador] = useState(0);
   const [tarefas, setTarefas] = useState(data as Array<Tarefa>); // Array<Tarefa> | Tarefa[]
   const [novaTarefa, setNovaTarefa] = useState("");
@@ -42,6 +49,18 @@ const TarefasScreen = ({ navigation }: Props) => {
   };
   return (
     <View>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ flexDirection: "row", alignItems: "center", marginTop: 30 }}
+      >
+        <Image
+          source={require("@/assets/images/arrow-right.png")}
+          style={{ width: 40, height: 40 }}
+        />
+        <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: 10 }}>
+          Tarefas
+        </Text>
+      </TouchableOpacity>
       <View
         style={{
           flexDirection: "row",
@@ -101,6 +120,7 @@ const TarefasScreen = ({ navigation }: Props) => {
             }
             title={tarefa.title}
             concluida={tarefa.concluida}
+            onTap={() => navigation.navigate("Detalhe", { tarefa: tarefa })}
           />
         )}
       />
