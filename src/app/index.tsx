@@ -1,11 +1,7 @@
-import { RootStackParamList } from "@/navigation/types";
-import { NativeStackScreenProps } from "expo-router/build/react-navigation/native-stack";
-import { View } from "react-native";
+import AppNavigator from "@/navigation/AppNavigator";
 
-type Props = NativeStackScreenProps<RootStackParamList, "HomeScreen">;
-
-const App = ({ navigation }: Props) => {
-  return <View></View>;
+const App = () => {
+  return <AppNavigator />;
 };
 
 export default App;
