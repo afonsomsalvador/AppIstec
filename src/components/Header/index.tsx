@@ -1,29 +1,54 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 type HeaderProps = {
-  title: string;
-  subtitle?: string;
+  titulo: string;
+  subtitulo?: string;
+  goBack?: () => void;
 };
-const Header = ({ title, subtitle = "Lista de tarefas" }: HeaderProps) => {
+
+const Header = ({ titulo, subtitulo, goBack }: HeaderProps) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      {subtitle ? <Text>{subtitle}</Text> : null}
+    <View
+      style={{
+        position: "absolute",
+        top: 35,
+        left: 0,
+        right: 0,
+        paddingHorizontal: 20,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <TouchableOpacity
+        onPress={goBack}
+        style={{
+          padding: 12,
+          backgroundColor: "#fff",
+          borderRadius: 15,
+        }}
+      >
+        <Image
+          source={require("../../../assets/images/arrow-left42.png")}
+          style={{ width: 20, height: 20 }}
+        />
+      </TouchableOpacity>
+      <Text style={{ fontSize: 18 }}>{titulo}</Text>
+      <TouchableOpacity
+        onPress={goBack}
+        style={{
+          padding: 12,
+          backgroundColor: "#fff",
+          borderRadius: 15,
+        }}
+      >
+        <Image
+          source={require("../../../assets/images/edit.png")}
+          style={{ width: 20, height: 20 }}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    backgroundColor: "#f8f8f8",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
 
 export default Header;

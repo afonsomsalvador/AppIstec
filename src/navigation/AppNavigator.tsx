@@ -1,7 +1,8 @@
 import DetalheScreen from "@/features/Detalhe";
 import HomeScreen from "@/features/Home/HomeScreen";
 import TarefasScreen from "@/features/ListaTarefas/TarefasScreen";
-import { createNativeStackNavigator } from "expo-router/build/react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -10,22 +11,24 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 // so this navigator must not be wrapped in another one.
 export default function AppNavigator() {
   return (
-    <Stack.Navigator initialRouteName="HomeScreen">
-      <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Tarefas"
-        component={TarefasScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Detalhe"
-        component={DetalheScreen}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HomeScreen">
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Tarefas"
+          component={TarefasScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Detalhe"
+          component={DetalheScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

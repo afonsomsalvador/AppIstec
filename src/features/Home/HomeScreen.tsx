@@ -1,6 +1,5 @@
-import Header from "@/components/Header";
 import { RootStackParamList } from "@/navigation/types";
-import { NativeStackScreenProps } from "expo-router/build/react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { Button, Image, ScrollView, Text, TextInput } from "react-native";
 
@@ -12,9 +11,9 @@ const HomeScreen = ({ navigation }: NavigationProps) => {
   const [email, setEmail] = useState<string>("" as string); // 2 formas de tipificar
   const [curso, setCurso] = useState("Engenharia Informatica");
   const valida = curso.length > 0;
+
   return (
     <ScrollView>
-      <Header title="Home Screen" />
       <Text style={{ fontSize: 18 }}>{nome}</Text>
       <Text>{idade + 10}</Text>
       {/* <Text>{text}</Text> */}

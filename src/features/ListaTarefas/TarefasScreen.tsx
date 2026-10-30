@@ -2,7 +2,7 @@ import { Filtro, Tarefa } from "@/app/types";
 import AppButton from "@/components/AppButton";
 import Card from "@/components/Card";
 import { RootStackParamList } from "@/navigation/types";
-import { NativeStackScreenProps } from "expo-router/build/react-navigation/native-stack";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useState } from "react";
 import {
   FlatList,
