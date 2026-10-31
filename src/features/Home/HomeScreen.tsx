@@ -1,6 +1,7 @@
+import AppButton from "@/components/AppButton";
 import { RootStackParamList } from "@/navigation/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Image, ScrollView, Text, TextInput } from "react-native";
 
 type NavigationProps = NativeStackScreenProps<RootStackParamList, "HomeScreen">;
@@ -11,6 +12,10 @@ const HomeScreen = ({ navigation }: NavigationProps) => {
   const [email, setEmail] = useState<string>("" as string); // 2 formas de tipificar
   const [curso, setCurso] = useState("Engenharia Informatica");
   const valida = curso.length > 0;
+
+  useEffect(() => {
+    console.log("HomeScreen mounted");
+  }, [email]);
 
   return (
     <ScrollView>
@@ -25,6 +30,10 @@ const HomeScreen = ({ navigation }: NavigationProps) => {
         placeholder="Digite o email"
       />
       <Button onPress={() => navigation.navigate("Tarefas")} title="Button1" />
+      <AppButton
+        title="Adicionar livro"
+        onPress={() => navigation.navigate("Formulario")}
+      />
       {/* Imagem remota */}
       <Image
         source={{ uri: "https://via.placeholder.com/150" }}

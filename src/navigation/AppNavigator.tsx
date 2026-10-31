@@ -1,4 +1,5 @@
 import DetalheScreen from "@/features/Detalhe";
+import FormularioScreen from "@/features/Formulario/FormularioScreen";
 import HomeScreen from "@/features/Home/HomeScreen";
 import TarefasScreen from "@/features/ListaTarefas/TarefasScreen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -26,6 +27,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Detalhe"
           component={DetalheScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Formulario"
+          component={FormularioScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

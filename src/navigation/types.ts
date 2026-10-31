@@ -4,4 +4,5 @@ export type RootStackParamList = {
   HomeScreen: undefined;
   Tarefas: undefined;
   Detalhe: { tarefa: Tarefa };
+  Formulario: undefined;
 };
